@@ -1,3 +1,8 @@
+@php
+$system = \App\Models\System::query()->select(['logo', 'company_name'])->first();
+
+@endphp
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -18,15 +23,17 @@
         </label>
 
         {{-- Brand --}}
-        <div>
-           App
+        <div class="flex gap-2 items-center">
+            <img src="{{asset($system->logo)}}" alt="logo"
+                class="object-scale-down max-w-12"
+            />
+
+           {{$system->company_name}}
         </div>
     </x-slot:brand>
 
     {{-- Right side actions --}}
     <x-slot:actions>
-        <x-button label="Messages" icon="o-envelope" link="###" class="btn-ghost btn-sm" responsive />
-        <x-button label="Notifications" icon="o-bell" link="###" class="btn-ghost btn-sm" responsive />
         <x-theme-toggle darkTheme="dark" lightTheme="pastel" />
         {{--            <x-theme-toggle class="btn" />--}}
     </x-slot:actions>
@@ -41,29 +48,26 @@
 
         {{-- User --}}
         @if($user = auth()->user())
-            <x-list-item :item="$user" value="name" sub-value="email" no-separator no-hover class="pt-2">
-                <x-slot:actions>
-                    <x-button icon="o-power" class="btn-circle btn-ghost btn-xs" tooltip-left="logoff" no-wire-navigate link="/logout" />
-                </x-slot:actions>
-            </x-list-item>
+            <x-menu>
+                <x-menu-sub title="{{Auth::user()->identifier}}" icon="m-user-plus">
+                    <x-menu-item title="Perfil" icon="o-user" link="####" />
 
-            <x-menu-separator />
+                    <form action="{{route('auth.logout')}}" method="POST" class="flex justify-start">
+                        @csrf
+                        <x-button label="Cerrar Sesión" icon="o-power" class="w-full btn-ghost" tooltip-left="logoff" no-wire-navigate type="submit" />
+                    </form>
+                </x-menu-sub>
+            </x-menu>
         @endif
 
         {{-- Activates the menu item when a route matches the `link` property --}}
         <x-menu activate-by-route>
-{{--            <x-menu-item title="Test" icon="o-home" link="{{route('home')}}" />--}}
-            <x-menu-item title="Messages" icon="o-envelope" link="###" />
+            <x-menu-item title="Panel" icon="o-square-3-stack-3d" link="{{route('dashboard')}}" />
 
-{{--            <x-menu-sub title="Manejo de usuarios" icon="o-users">--}}
-{{--                <x-menu-item title="Usuarios" icon="o-user" link="{{route('users.index')}}" />--}}
-{{--                <x-menu-item title="Roles" icon="o-lock-closed" link="{{route('roles.index')}}" />--}}
-{{--            </x-menu-sub>--}}
-
-{{--            <x-menu-sub title="Settings" icon="o-cog-6-tooth">--}}
-{{--                <x-menu-item title="Wifi" icon="o-wifi" link="####" />--}}
-{{--                <x-menu-item title="Archives" icon="o-archive-box" link="####" />--}}
-{{--            </x-menu-sub>--}}
+            <x-menu-sub title="Settings" icon="o-cog-6-tooth">
+                <x-menu-item title="Wifi" icon="o-wifi" link="####" />
+                <x-menu-item title="Archives" icon="o-archive-box" link="####" />
+            </x-menu-sub>
         </x-menu>
     </x-slot:sidebar>
 

@@ -7,8 +7,14 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+
+    <div class="flex mt-5 mx-auto justify-end max-w-screen-lg">
+        <x-theme-toggle darkTheme="dark" lightTheme="pastel" />
+    </div>
     <main>
         {{$slot}}
     </main>
+
+    <x-toast />
 </body>
 </html>
