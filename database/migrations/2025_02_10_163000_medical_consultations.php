@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('medical_consultations', function (Blueprint $table) {
             $table->id();
-            $table->datetime('date');
+            $table->datetime('start_date');
+            $table->datetime('end_date');
             $table->string('diagnosis')->nullable();
             $table->text('treatment')->nullable();
             $table->timestamps();
