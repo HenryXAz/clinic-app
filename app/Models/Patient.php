@@ -6,13 +6,10 @@ use App\Enums\Patients\AcademicLevel;
 use App\Enums\Patients\Ethnicity;
 use App\Enums\Patients\Gender;
 use App\Enums\Patients\MaritalStatus;
-use App\Traits\Common\SetModelEnumAttribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
-    use SetModelEnumAttribute;
-
     protected $casts = [
         'academic_level' => AcademicLevel::class,
         'gender' => Gender::class,
