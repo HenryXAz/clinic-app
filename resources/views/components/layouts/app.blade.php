@@ -8,7 +8,12 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{config('app.name', 'Laravel')}}</title>
+    <title>{{$system->company_name}}</title>
+
+    {{-- Flatpickr  --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -52,7 +57,7 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
                 <x-menu-sub title="{{Auth::user()->identifier}}" icon="m-user-plus">
                     <x-menu-item title="Perfil" icon="o-user" link="####" />
 
-                    <form action="{{route('auth.logout')}}" method="POST" class="flex justify-start">
+                    <form action="{{route('logout')}}" method="POST" class="flex justify-start">
                         @csrf
                         <x-button label="Cerrar Sesión" icon="o-power" class="w-full btn-ghost" tooltip-left="logoff" no-wire-navigate type="submit" />
                     </form>
@@ -63,6 +68,7 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
         {{-- Activates the menu item when a route matches the `link` property --}}
         <x-menu activate-by-route>
             <x-menu-item title="Panel" icon="o-square-3-stack-3d" link="{{route('dashboard')}}" />
+            <x-menu-item title="Pacientes" icon="o-users" link="{{route('patients.index')}}"/>
 
             <x-menu-sub title="Settings" icon="o-cog-6-tooth">
                 <x-menu-item title="Wifi" icon="o-wifi" link="####" />
