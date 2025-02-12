@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Pages\Dashboard\Index;
 
 Route::get('/', function () {
-    return redirect(route('auth.login'));
+    return redirect(route('login'));
 });
 
 Route::get('/dashboard', Index::class)
