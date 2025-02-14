@@ -7,6 +7,7 @@ use App\Enums\Patients\Ethnicity;
 use App\Enums\Patients\Gender;
 use App\Enums\Patients\MaritalStatus;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Patient extends Model
 {
@@ -64,6 +65,16 @@ class Patient extends Model
     protected function getFullNameAttribute(): string
     {
         return "$this->names $this->last_names";
+    }
+
+    public function department() : BelongsTo
+    {
+        return $this->belongsTo(CountryDepartment::class, 'department_id');
+    }
+
+    public function town() : BelongsTo
+    {
+        return $this->belongsTo(CountryTown::class, 'town_department_id');
     }
 
 }

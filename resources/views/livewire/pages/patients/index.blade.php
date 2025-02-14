@@ -42,7 +42,9 @@
         @scope('actions', $patient)
         <div class="flex justify-center gap-2 items-center p-2">
             <x-button label="Editar" icon="o-pencil" class=" btn-warning"/>
-            <x-button label="Historial" icon="o-clock" class=" btn-primary"/>
+            <x-button label="Historial" icon="o-clock" class=" btn-primary"
+                link="{{route('consultations.index', $patient->id)}}"
+            />
         </div>
         @endscope
     </x-table>
