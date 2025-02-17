@@ -6,6 +6,7 @@ use App\Enums\Patients\AcademicLevel;
 use App\Enums\Patients\Ethnicity;
 use App\Enums\Patients\Gender;
 use App\Enums\Patients\MaritalStatus;
+use App\Models\Patient;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 use Livewire\Attributes\Validate;
@@ -29,6 +30,29 @@ class PatientInfoForm extends Form
     public ?int $birth_department = null;
     public ?int $department_id = null;
     public ?int $town_department_id = null;
+    public ?string $religion = '';
+
+    public function set_values(Patient $patient): void
+    {
+        $this->fill([
+            'names' => $patient->names,
+            'last_names' => $patient->last_names,
+            'birth_date' => $patient->birth_date,
+            'community' => $patient->community,
+            'sector' => $patient->sector,
+            'gender' => $patient->gender,
+            'dpi' => $patient->dpi,
+            'ethnicity' => $patient->ethnicity,
+            'marital_status' => $patient->marital_status,
+            'is_working' => $patient->is_working,
+            'is_immigrant' => $patient->is_immigrant,
+            'profession' => $patient->profession,
+            'birth_department' => $patient->birth_department,
+            'department_id' => $patient->department_id,
+            'town_department_id' => $patient->town_department_id,
+            'religion' => $patient->religion,
+        ]);
+    }
 
     public function rules(): array
     {
@@ -58,6 +82,10 @@ class PatientInfoForm extends Form
             'gender' => [
                 'required',
                 Rule::enum(Gender::class),
+            ],
+            'religion' => [
+                'nullable',
+                'string',
             ],
             'ethnicity' => [
                 'required',
