@@ -23,10 +23,15 @@ class Index extends Component
         $patients = null;
         if ($this->search != '') {
             $this->resetPage();
-            $patients = Patient::where('names', 'ilike', '%' . $this->search . '%')
-                ->orWhere('last_names', 'ilike', '%' . $this->search . '%')
-                ->orWhere('dpi', 'ilike', '%' . $this->search . '%')
-                ->paginate($this->itemsPerPage);
+
+            $query = $this->search;
+            $patients = Patient::where(function($q) use($query) {
+                $words = explode(' ', $query);
+                foreach ($words as $word) {
+                    $q->orWhere('names', 'ilike', "%{$word}%")
+                    ->orWhere('last_names', 'ilike', "%{$word}%");
+                }
+            })->paginate($this->itemsPerPage);
         }  else {
             $patients = Patient::paginate($this->itemsPerPage);
         }

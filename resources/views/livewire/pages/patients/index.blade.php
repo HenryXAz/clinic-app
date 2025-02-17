@@ -17,8 +17,6 @@
         <x-button class="btn-outline" label="nuevo paciente" link="{{route('patients.create')}}"/>
     </div>
 
-    {{$search}}
-
     <x-custom-card class="mb-10">
         <x-input label="Buscar" icon="o-magnifying-glass"
                  wire:model.live.debounce.500ms="search"
@@ -41,7 +39,9 @@
 
         @scope('actions', $patient)
         <div class="flex justify-center gap-2 items-center p-2">
-            <x-button label="Editar" icon="o-pencil" class=" btn-warning"/>
+            <x-button label="Editar" icon="o-pencil" class=" btn-warning"
+                link="{{route('patients.edit', $patient->id)}}"
+            />
             <x-button label="Historial" icon="o-clock" class=" btn-primary"
                 link="{{route('consultations.index', $patient->id)}}"
             />
