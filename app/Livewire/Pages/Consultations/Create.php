@@ -42,13 +42,15 @@ class Create extends Component
     public function schedule() : void
     {
         $consultation = $this->save(has_been_scheduled: true);
+        $this->form->reset();
         $this->redirect(route('consultations.index', $this->patient->id), navigate: true);
     }
 
     public function serve() : void
     {
         $consultation = $this->save(has_been_scheduled: false);
-        $this->save(has_been_scheduled: false);
+//        $this->save(has_been_scheduled: false);
+        $this->form->reset();
         $this->redirect(route('consultations.edit', [
             'id' => $this->patient->id,
             'consultation_id' => $consultation->id,
@@ -64,7 +66,6 @@ class Create extends Component
         try {
             $data = [
                 ...$this->form->toArray(),
-                'end_date' => $this->form->start_date,
                 'has_been_scheduled' => $has_been_scheduled,
                 'has_been_completed' => false,
                 'doctor_id' => Auth::user()->id,

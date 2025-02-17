@@ -1,13 +1,13 @@
 @php
     $headers = [
-    ['key' => 'start_date', 'label' => 'Fecha',
+    ['key' => 'date', 'label' => 'Fecha',
         'format' => fn($row, $field) => $field->format('d-m-Y h:i A'),
     ],
     ['key' => 'has_been_scheduled', 'label' => 'Pendiente',
         'format' => fn($row, $field) => ($field) ? 'Sí' : 'No',
     ],
-    ['key' => 'has_been_completed', 'label' => 'Finalizada',
-        'format' => fn($row, $field) => ($field) ? 'Sí' : "No",
+    [
+        'key' => 'reason_abbreviation', 'label' => 'Motivo Ingreso',
     ],
     ];
 @endphp
@@ -77,13 +77,19 @@
                 <p class="mb-3">
                     Parentesco tutor: <span class="font-bold">{{($patient->tutor_relationship ?? 'No registrado')}}</span>
                 </p>
+
+
+                <x-button label="Revisar ficha clínica" class="btn-primary mt-5"
+                    link="{{route('consultations.clinic_card.index', ['id' => $patient->id])}}"
+                />
             </div>
+
         </div>
 
     </x-custom-card>
 
     <div class="flex justify-end my-5" >
-        <x-button class="btn-outline" label="nueva consulta" link="{{route('consultations.create', [
+        <x-button class="btn-outline" label="Nuevo Ingreso" link="{{route('consultations.create', [
             'id' => $patient->id,
         ])}}"/>
     </div>
@@ -106,14 +112,13 @@
     >
         <x-slot:empty>
             <div class="flex items-center gap-2 flex-col">
-                <x-icon name="o-cube" label="No se han registrado consultas para este paciente aún"/>
+                <x-icon name="o-cube" label="No se han registrado ingresos para este paciente aún"/>
                 <x-button class="bg-transparent" icon="o-plus" label="Agregar" link="{{route('consultations.create', $patient->id)}}"/>
             </div>
         </x-slot:empty>
 
         @scope('actions', $consultation, $patient)
         <div class="flex justify-center gap-2 items-center p-2">
-{{--            <x-button label="Editar" icon="o-pencil" class=" btn-warning"/>--}}
             <x-button label="Revisar" icon="o-document" class=" btn-primary"
                       link="{{route('consultations.edit', [
                             'id' => $patient->id,
