@@ -17,6 +17,8 @@ class Patient extends Model
         'marital_status' => MaritalStatus::class,
         'Ethnicity' => Ethnicity::class,
         'birth_date' => 'date',
+        'last_menstruation_date' => 'date',
+        'last_cytology_date' => 'date',
     ];
     protected $guarded = [
         'id',
