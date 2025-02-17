@@ -26,6 +26,7 @@ return new class extends Migration
             $table->text('muscle_skeletal')->nullable();
             $table->text('genitourinary')->nullable();
             $table->text('hematopoietic_lymphatic')->nullable();
+            $table->text('study_plan')->nullable();
             $table->text('skin_and_appendages')->nullable();
             $table->text('neurological_psychiatric')->nullable();
 
@@ -57,6 +58,30 @@ return new class extends Migration
                 ->onDelete('cascade');
         });
 
+
+        Schema::create('clinic_cards', function(Blueprint $table){
+            $table->id();
+            $table->string('blood_pressure');
+            $table->string('heart_rate');
+            $table->string('temperature');
+            $table->string('rheumatoid_factor');
+            $table->decimal('weight');
+            $table->decimal('height');
+            $table->text('exterior_habitus');
+            $table->text('skin_and_appendages');
+            $table->text('head_and_neck');
+            $table->text('chest');
+            $table->text('abdomen');
+            $table->text('genitals');
+            $table->text('limbs');
+            $table->text('nervous_system');
+            $table->timestamps();
+
+            $table->foreignId('patient_id')->constrained('patients')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+        });
+
         Schema::create('current_medications', function(Blueprint $table){
             $table->id();
             $table->string('trade_name');
@@ -84,6 +109,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('medical_consultations_detail');
         Schema::dropIfExists('medical_consultations');
-        Schema::dropIfExists('clinical_records');
+        Schema::dropIfExists('clinic_cards');
+        Schema::dropIfExists('current_medications');
     }
 };
