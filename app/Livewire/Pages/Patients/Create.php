@@ -2,8 +2,12 @@
 
 namespace App\Livewire\Pages\Patients;
 
+use App\Livewire\Forms\Patient\HereditaryBackgroundForm;
+use App\Livewire\Forms\Patient\NoPathologyBackgroundForm;
+use App\Livewire\Forms\Patient\ObstetricsForm;
 use App\Livewire\Forms\Patient\PatientContactForm;
 use App\Livewire\Forms\Patient\PatientInfoForm;
+use App\Livewire\Forms\Patient\PersonalHistoryForm;
 use App\Models\CountryDepartment;
 use App\Models\CountryTown;
 use App\Models\Patient;
@@ -15,7 +19,7 @@ class Create extends Component
 {
     use Toast;
 
-    public $step = 1;
+    public $step = 7;
     public bool $open_cancel_modal = false;
     public $departments;
     public $departmentId = '';
@@ -25,6 +29,10 @@ class Create extends Component
 
     public PatientInfoForm $infoForm;
     public PatientContactForm $contactForm;
+    public HereditaryBackgroundForm $hereditaryBackgroundForm;
+    public NoPathologyBackgroundForm $noPathologyBackgroundForm;
+    public ObstetricsForm $obstetricsForm;
+    public PersonalHistoryForm $personalHistoryForm;
 
     private function selectTownForDepartment() : void
     {
@@ -53,12 +61,33 @@ class Create extends Component
 
     public function next() : void
     {
+//        $this->step++;
         if (($this->step + 1) == 2 && $this->infoForm->validate()) {
             $this->step = 2;
             return;
         }
 
-        if (($this->step + 1) == 3 && $this->contactForm->validate()) {
+        if (($this->step + 1) == 3 && $this->hereditaryBackgroundForm->validate()) {
+            $this->step++;
+            return;
+        }
+
+        if (($this->step + 1) == 4  && $this->noPathologyBackgroundForm->validate()) {
+            $this->step++;
+            return;
+        }
+
+        if (($this->step + 1) == 5 && $this->obstetricsForm->validate()) {
+            $this->step++;
+            return;
+        }
+
+        if (($this->step + 1) == 6  && $this->personalHistoryForm->validate()) {
+            $this->step++;
+            return;
+        }
+
+        if (($this->step + 1) == 7 && $this->contactForm->validate()) {
             $this->step++;
             return;
         }
@@ -81,6 +110,10 @@ class Create extends Component
             $data = [
                 ...$this->infoForm->toArray(),
                 ...$this->contactForm->toArray(),
+                ...$this->hereditaryBackgroundForm->toArray(),
+                ...$this->noPathologyBackgroundForm->toArray(),
+                ...$this->obstetricsForm->toArray(),
+                ...$this->personalHistoryForm->toArray(),
             ];
 
             Patient::create($data);
@@ -89,6 +122,7 @@ class Create extends Component
             $this->redirect(route('patients.index'), navigate: true);
         } catch (\Throwable $th) {
             DB::rollBack();
+            dump('Error: ' . $th->getMessage());
             $this->error('No se pudo guardar la información');
         }
     }
