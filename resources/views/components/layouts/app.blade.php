@@ -8,13 +8,13 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+{{--    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">--}}
     <title>{{$system->company_name}}</title>
 
     {{-- Flatpickr  --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+{{--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">--}}
+{{--    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>--}}
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/flatpickr.min.js', 'resources/css/flatpickr.min.css'])
 </head>
 <body>
 
@@ -30,7 +30,7 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
         {{-- Brand --}}
         <div class="flex gap-2 items-center">
             <img src="{{asset($system->logo)}}" alt="logo"
-                class="object-scale-down max-w-12"
+                class="object-scale-down max-w-20"
             />
 
            {{$system->company_name}}
@@ -40,7 +40,6 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
     {{-- Right side actions --}}
     <x-slot:actions>
         <x-theme-toggle darkTheme="dark" lightTheme="pastel" />
-        {{--            <x-theme-toggle class="btn" />--}}
     </x-slot:actions>
 </x-nav>
 
