@@ -54,6 +54,7 @@ return new class extends Migration {
             $table->boolean('alcoholic', false);
             $table->integer('ml_per_week')->nullable();
             $table->boolean('ex_alcoholic_or_ocasional', false);
+            $table->integer('alcohol_years_of_consumption')->nullable();
             $table->boolean('allergies', false);
             $table->string('allergies_description')->nullable();
 
@@ -82,7 +83,7 @@ return new class extends Migration {
             $table->string('a')->nullable();
             $table->string('c')->nullable();
             $table->date('last_cytology_date')->nullable();
-            $table->text('citoloy_result')->nullable();
+            $table->text('citology_result')->nullable();
             $table->string('current_contraceptive_method')->nullable();
 
 

@@ -90,7 +90,7 @@ return new class extends Migration
             $table->decimal('dosage_mg');
             $table->string('via');
             $table->string('frequency');
-            $table->date('last_administration_date');
+            $table->datetime('last_administration_date');
             $table->timestamps();
 
             $table->foreignId('patient_id')->constrained('patients')
