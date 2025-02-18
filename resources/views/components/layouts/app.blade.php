@@ -54,7 +54,7 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
         @if($user = auth()->user())
             <x-menu>
                 <x-menu-sub title="{{Auth::user()->identifier}}" icon="m-user-plus">
-                    <x-menu-item title="Perfil" icon="o-user" link="####" />
+{{--                    <x-menu-item title="Perfil" icon="o-user" link="####" />--}}
 
                     <form action="{{route('logout')}}" method="POST" class="flex justify-start">
                         @csrf
@@ -66,13 +66,13 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
 
         {{-- Activates the menu item when a route matches the `link` property --}}
         <x-menu activate-by-route>
-            <x-menu-item title="Panel" icon="o-square-3-stack-3d" link="{{route('dashboard')}}" />
+{{--            <x-menu-item title="Panel" icon="o-square-3-stack-3d" link="{{route('dashboard')}}" />--}}
             <x-menu-item title="Pacientes" icon="o-users" link="{{route('patients.index')}}"/>
 
-            <x-menu-sub title="Settings" icon="o-cog-6-tooth">
-                <x-menu-item title="Wifi" icon="o-wifi" link="####" />
-                <x-menu-item title="Archives" icon="o-archive-box" link="####" />
-            </x-menu-sub>
+{{--            <x-menu-sub title="Settings" icon="o-cog-6-tooth">--}}
+{{--                <x-menu-item title="Wifi" icon="o-wifi" link="####" />--}}
+{{--                <x-menu-item title="Archives" icon="o-archive-box" link="####" />--}}
+{{--            </x-menu-sub>--}}
         </x-menu>
     </x-slot:sidebar>
 

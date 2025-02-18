@@ -8,7 +8,7 @@ export default defineConfig(({command, mode}) => {
     return {
         plugins: [
             laravel({
-                input: ['resources/css/app.css', 'resources/js/app.js', 'resources/css/flatpickr.css', 'resources/js/flatpicrk.min.js'],
+                input: ['resources/css/app.css', 'resources/js/app.js', 'resources/css/flatpickr.min.css', 'resources/js/flatpickr.min.js'],
                 refresh: true,
             }),
         ],
