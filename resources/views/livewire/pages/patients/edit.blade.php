@@ -20,13 +20,14 @@
         </x-slot:content>
     </x-collapse>
 
-
+    @if($infoForm->gender == \App\Enums\Patients\Gender::F)
     <x-collapse collapse-plus-minor wire:model="show_obstetrics_form"  class="bg-base-200 mt-5">
         <x-slot:heading>Antecedentes Ginecoobstétricos</x-slot:heading>
         <x-slot:content>
             @include('livewire.pages.patients.obstetrics-form')
         </x-slot:content>
     </x-collapse>
+    @endif
 
     <x-collapse collapse-plus-minor wire:model="show_personal_history_background"  class="bg-base-200 mt-5">
         <x-slot:heading>Antecedentes Personales Patológicos</x-slot:heading>
