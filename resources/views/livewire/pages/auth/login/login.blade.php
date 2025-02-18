@@ -2,7 +2,7 @@
 
     <div class="flex justify-center">
         <img src="{{asset($logo->logo)}}" alt="logo"
-            class="object-scale-down max-w-48 "
+            class="object-scale-down max-w-72"
         >
     </div>
 
