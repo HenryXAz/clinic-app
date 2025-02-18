@@ -83,13 +83,6 @@
             />
 
             <x-button
-                label="Agendar"
-                icon="o-newspaper"
-                class="btn-outline"
-                wire:click="schedule"
-            />
-
-            <x-button
                 label="Cancelar"
                 icon="o-x-mark"
                 class="btn-error"
