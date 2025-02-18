@@ -119,6 +119,14 @@
 
         @scope('actions', $consultation, $patient)
         <div class="flex justify-center gap-2 items-center p-2">
+            <x-button label="Documento" icon="o-document" class=" btn-success"
+{{--                      link="{{route('clinical_history.generate_pdf', [--}}
+{{--                            'patient' => $patient->id,--}}
+{{--                            'consultation' => $consultation->id,--}}
+{{--                      ])}}"--}}
+                      external
+                      onclick="openAndPrint(`/historial-clinico/{{$patient->id}}/ingresos/{{$consultation->id}}/ver`)"
+            />
             <x-button label="Revisar" icon="o-document" class=" btn-primary"
                       link="{{route('consultations.edit', [
                             'id' => $patient->id,
@@ -130,3 +138,12 @@
     </x-table>
 
 </div>
+
+<script type="text/javascript">
+    function openAndPrint(url) {
+        var win = window.open(url, '_blank');
+        win.onload = function () {
+            win.print();
+        };
+    }
+</script>

@@ -8,6 +8,8 @@ use App\Enums\Patients\Gender;
 use App\Enums\Patients\MaritalStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Patient extends Model
 {
@@ -79,4 +81,19 @@ class Patient extends Model
         return $this->belongsTo(CountryTown::class, 'town_department_id');
     }
 
+    public function birth_date_department() : BelongsTo
+    {
+        return $this->belongsTo(CountryDepartment::class, 'birth_department');
+    }
+
+    public function consultations() : HasMany
+    {
+        return $this->hasMany(MedicalConsultation::class);
+    }
+
+    public function clinic_card() : HasOne
+    {
+//        return $this->hasMany(ClinicCard::class);
+        return $this->hasOne(ClinicCard::class);
+    }
 }

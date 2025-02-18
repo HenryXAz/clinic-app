@@ -15,7 +15,9 @@ if (config('app.env') == 'local') {
     Route::get('/test', \App\Livewire\Counter::class);
 }
 
+Route::get('/test-pdf', [\App\Http\Controllers\PatientHistoryDocumentController::class , 'generate_pdf']);
 
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/patients.php';
 require_once __DIR__ . '/consultations.php';
+require_once __DIR__ . '/documents.php';

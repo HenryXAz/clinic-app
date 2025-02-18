@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class MedicalConsultation extends Model
 {
@@ -32,6 +33,16 @@ class MedicalConsultation extends Model
 
         return $value;
 //        return substr($this->attributes['reason'], 0, 20) . '...';
+    }
+
+    public function current_medications() : HasMany
+    {
+        return $this->hasMany(CurrentMedication::class, 'consultation_id');
+    }
+
+    public function details() : HasMany
+    {
+        return $this->hasMany(MedicalConsultationDetail::class, 'medical_consultation_id');
     }
 
 }
