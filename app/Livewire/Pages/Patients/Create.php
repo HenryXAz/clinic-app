@@ -19,7 +19,7 @@ class Create extends Component
 {
     use Toast;
 
-    public $step = 7;
+    public $step = 1;
     public bool $open_cancel_modal = false;
     public $departments;
     public $departmentId = '';
