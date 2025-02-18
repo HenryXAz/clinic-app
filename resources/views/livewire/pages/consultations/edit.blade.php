@@ -14,13 +14,13 @@
         <h1>Administrar Ingreso</h1>
     </div>
 
-    <div class="flex mb-5 mt-4 justify-end">
-        <x-button
-            label="Eliminar este ingreso"
-            icon="o-trash"
-            class="btn-error"
-        />
-    </div>
+{{--    <div class="flex mb-5 mt-4 justify-end">--}}
+{{--        <x-button--}}
+{{--            label="Eliminar este ingreso"--}}
+{{--            icon="o-trash"--}}
+{{--            class="btn-error"--}}
+{{--        />--}}
+{{--    </div>--}}
 
     <x-custom-card>
         <x-datepicker  label="Fecha de ingreso" icon="o-calendar" wire:model="consultation_form.date"
