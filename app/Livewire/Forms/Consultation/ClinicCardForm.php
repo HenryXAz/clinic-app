@@ -18,6 +18,7 @@ class ClinicCardForm extends Form
 
     public string $exterior_habitus = '';
     public string $skin_and_appendages = '';
+    public string $head_and_neck = '';
     public string $chest = '';
     public string $abdomen = '';
     public string $genitals = '';
@@ -40,6 +41,7 @@ class ClinicCardForm extends Form
             'height' => ['nullable', 'regex:/^(0|[1-9]\d*)?(\.\d+)?(?<=\d)$/'],
             'exterior_habitus' => ['nullable', 'string'],
             'skin_and_appendages' => ['nullable', 'string'],
+            'head_and_neck' => ['nullable', 'string'],
             'chest' => ['nullable', 'string'],
             'abdomen' => ['nullable', 'string'],
             'genitals' => ['nullable', 'string'],
