@@ -18,7 +18,7 @@ class Index extends Component
     public ?ClinicCard $card;
 
 
-    public $enable_edition = false;
+    public $enable_edition = true;
 
     public function mount()
     {
@@ -35,11 +35,12 @@ class Index extends Component
 
     private function fillForm()
     {
-        if ($this?->card != null) {
-            $this->form->setClinicCard($this->card);
-        } else {
-            $this->form->reset();
-        }
+//        $this->form->reset();
+//        if ($this?->card != null) {
+//            $this->form->setClinicCard($this->card);
+//        } else {
+//            $this->form->reset();
+//        }
     }
 
     public function render()
@@ -64,9 +65,8 @@ class Index extends Component
                 'patient_id' => $this->patient->id,
             ]);
 
-//            DB::commit();
+            DB::commit();
             $this->form->setClinicCard($card);
-            $this->enable_edition = false;
             $this->success('Información guardada con éxito', timeout: 3000);
         } catch (\Throwable $th) {
             DB::rollBack();

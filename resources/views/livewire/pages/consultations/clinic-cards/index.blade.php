@@ -91,7 +91,8 @@
                     <x-button
                         label="Cancelar"
                         class="btn-error"
-                        wire:click="cancel"
+                        link="{{route('consultations.index', $patient->id)}}"
+{{--                        wire:click="cancel"--}}
                     />
                     @endif
             </x-form>
