@@ -54,7 +54,7 @@ $system = \App\Models\System::query()->select(['logo', 'company_name'])->first()
         @if($user = auth()->user())
             <x-menu>
                 <x-menu-sub title="{{Auth::user()->identifier}}" icon="m-user-plus">
-{{--                    <x-menu-item title="Perfil" icon="o-user" link="####" />--}}
+                    <x-menu-item title="Cambiar contraseña" icon="o-user" link="{{route('reset_password')}}" />
 
                     <form action="{{route('logout')}}" method="POST" class="flex justify-start">
                         @csrf
