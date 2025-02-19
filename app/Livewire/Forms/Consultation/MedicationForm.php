@@ -45,5 +45,19 @@ class MedicationForm extends Form
         ];
     }
 
-
+    protected $messages = [
+        'trade_name.required' => 'El nombre comercial es obligatorio.',
+        'trade_name.string' => 'El nombre comercial debe ser un texto.',
+        'active_ingredient.required' => 'El principio activo es obligatorio.',
+        'active_ingredient.string' => 'El principio activo debe ser un texto.',
+        'presentation_mg.regex' => 'La presentación debe ser un número válido (ej. 500 o 500.5).',
+        'dosage_mg.required' => 'La dosis es obligatoria.',
+        'dosage_mg.regex' => 'La dosis debe ser un número válido (ej. 250 o 250.5).',
+        'via.required' => 'La vía de administración es obligatoria.',
+        'via.string' => 'La vía de administración debe ser un texto.',
+        'frequency.required' => 'La frecuencia es obligatoria.',
+        'frequency.string' => 'La frecuencia debe ser un texto.',
+        'last_administration_date.required' => 'La fecha de última administración es obligatoria.',
+        'last_administration_date.date' => 'La fecha de última administración debe ser una fecha válida.',
+    ];
 }

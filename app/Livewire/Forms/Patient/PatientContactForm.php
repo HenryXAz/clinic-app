@@ -51,4 +51,13 @@ class PatientContactForm extends Form
             ],
         ];
     }
+
+    protected $messages = [
+        'phone.string' => 'El número de teléfono debe ser un texto.',
+        'personal_phone.required' => 'El teléfono personal es obligatorio.',
+        'personal_phone.string' => 'El teléfono personal debe ser un texto.',
+        'tutor_name.string' => 'El nombre del tutor debe ser un texto.',
+        'tutor_relationship.string' => 'La relación con el tutor debe ser un texto.',
+        'email.email' => 'El correo electrónico debe ser una dirección de correo válida.',
+    ];
 }

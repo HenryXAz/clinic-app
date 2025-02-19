@@ -76,26 +76,29 @@ class ConsultationForm extends Form
         ];
     }
 
-
-//    public ?\Carbon\Carbon $start_date = null;
-//    public ?string $treatment;
-//    public ?string $diagnosis;
-//
-//    public function setConsultation(MedicalConsultation $consultation) : void
-//    {
-//        $this->fill([
-//            'start_date' => $consultation->start_date,
-//            'treatment' => $consultation->treatment,
-//            'diagnosis' => $consultation->diagnosis,
-//        ]);
-//    }
-//
-//    public function rules() : array
-//    {
-//        return [
-//            'treatment' => 'string|nullable',
-//            'diagnosis' => 'string|nullable',
-//            'start_date' => 'date|required',
-//        ];
-//    }
+    protected $messages = [
+        'date.required' => 'La fecha es obligatoria.',
+        'date.date' => 'La fecha debe ser una fecha válida.',
+        'has_been_scheduled.required' => 'El campo de programación es obligatorio.',
+        'has_been_scheduled.boolean' => 'El valor de programación debe ser verdadero o falso.',
+        'has_been_completed.required' => 'El campo de finalización es obligatorio.',
+        'has_been_completed.boolean' => 'El valor de finalización debe ser verdadero o falso.',
+        'reason.required' => 'El motivo es obligatorio.',
+        'reason.string' => 'El motivo debe ser un texto.',
+        'beginning_and_evolution_of_current_condition.string' => 'El inicio y evolución de la condición actual debe ser un texto.',
+        'respiratory_or_cardiovascular.string' => 'El campo respiratorio o cardiovascular debe ser un texto.',
+        'digestive.string' => 'El campo digestivo debe ser un texto.',
+        'endocrine.string' => 'El campo endocrino debe ser un texto.',
+        'muscle_skeletal.string' => 'El campo músculo-esquelético debe ser un texto.',
+        'genitourinary.string' => 'El campo genitourinario debe ser un texto.',
+        'hematopoietic_lymphatic.string' => 'El campo hematopoyético y linfático debe ser un texto.',
+        'skin_and_appendages.string' => 'El campo piel y anexos debe ser un texto.',
+        'neurological_psychiatric.string' => 'El campo neurológico y psiquiátrico debe ser un texto.',
+        'previous_admission_laboratory_exams.string' => 'El campo de exámenes de laboratorio previos al ingreso debe ser un texto.',
+        'possible_diagnoses.string' => 'El campo de posibles diagnósticos debe ser un texto.',
+        'study_plan.string' => 'El campo de plan de estudios debe ser un texto.',
+        'initial_therapeutic.string' => 'El campo de tratamiento inicial debe ser un texto.',
+        'condition.string' => 'El campo de condición debe ser un texto.',
+        'prognosis.string' => 'El campo de pronóstico debe ser un texto.',
+    ];
 }

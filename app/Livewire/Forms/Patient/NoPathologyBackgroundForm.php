@@ -75,4 +75,24 @@ class NoPathologyBackgroundForm extends Form
         ];
     }
 
+    protected $messages = [
+        'smoking.required' => 'El campo fumador es obligatorio.',
+        'smoking.boolean' => 'El campo fumador debe ser verdadero o falso.',
+        'how_many_smoke_per_day.numeric' => 'La cantidad de cigarrillos por día debe ser un número.',
+        'years_of_smoking_or_exposition.integer' => 'Los años de fumador o exposición deben ser un número entero.',
+        'ex_smoker.boolean' => 'El campo exfumador debe ser verdadero o falso.',
+        'passive_smoker.boolean' => 'El campo fumador pasivo debe ser verdadero o falso.',
+        'alcoholic.boolean' => 'El campo consumo de alcohol debe ser verdadero o falso.',
+        'ml_per_week.integer' => 'La cantidad de ml de alcohol por semana debe ser un número entero.',
+        'alcohol_years_of_consumption.integer' => 'Los años de consumo de alcohol deben ser un número entero.',
+        'ex_alcoholic_or_ocasional.boolean' => 'El campo exalcohólico u ocasional debe ser verdadero o falso.',
+        'allergies.boolean' => 'El campo alergias debe ser verdadero o falso.',
+        'allergies_description.string' => 'La descripción de alergias debe ser un texto.',
+        'blood_type.string' => 'El tipo de sangre debe ser un texto.',
+        'basic_home_services.boolean' => 'El campo servicios básicos en el hogar debe ser verdadero o falso.',
+        'drug_dependency.boolean' => 'El campo dependencia a drogas debe ser verdadero o falso.',
+        'drug_dependency_description.string' => 'La descripción de dependencia a drogas debe ser un texto.',
+        'drug_dependency_years.string' => 'Los años de dependencia a drogas deben ser un texto.',
+        'others_no_pathology_background.string' => 'El campo otros antecedentes no patológicos debe ser un texto.',
+    ];
 }

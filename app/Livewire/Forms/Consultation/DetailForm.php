@@ -28,4 +28,9 @@ class DetailForm extends Form
             ]
         ];
     }
+
+    protected $messages = [
+        'description.required' => 'Este campo es obligatorio',
+        'description.string' => 'Este campo debe de ser de tipo texto',
+    ];
 }

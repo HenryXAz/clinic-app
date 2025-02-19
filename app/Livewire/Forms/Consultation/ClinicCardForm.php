@@ -51,8 +51,19 @@ class ClinicCardForm extends Form
     }
 
     protected $messages = [
-        'blood_pressure' => [
-            'regex' => 'Este no es un formato válido',
-        ],
+        'blood_pressure.regex' => 'La presión arterial debe estar en el formato correcto (ej. 120/80).',
+        'heart_rate.regex' => 'La frecuencia cardíaca debe ser un número entero.',
+        'temperature.regex' => 'La temperatura debe ser un número entero.',
+        'rheumatoid_factor.regex' => 'El factor reumatoide debe ser un número entero.',
+        'weight.regex' => 'El peso debe ser un número válido (ej. 70 o 70.5).',
+        'height.regex' => 'La altura debe ser un número válido (ej. 1.75).',
+        'exterior_habitus.string' => 'El hábito exterior debe ser un texto.',
+        'skin_and_appendages.string' => 'La piel y anexos deben ser un texto.',
+        'head_and_neck.string' => 'La cabeza y cuello deben ser un texto.',
+        'chest.string' => 'El tórax debe ser un texto.',
+        'abdomen.string' => 'El abdomen debe ser un texto.',
+        'genitals.string' => 'Los genitales deben ser un texto.',
+        'limbs.string' => 'Las extremidades deben ser un texto.',
+        'nervous_system.string' => 'El sistema nervioso debe ser un texto.',
     ];
 }

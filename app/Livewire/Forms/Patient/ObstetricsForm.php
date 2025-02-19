@@ -72,6 +72,23 @@ class ObstetricsForm extends Form
         ];
     }
 
-
-
+    protected $messages = [
+        'menarche_year.regex' => 'El año de menarquia debe ser un número entero.',
+        'regular_cycles.boolean' => 'El campo ciclos regulares debe ser verdadero o falso.',
+        'menstrual_rhythm.string' => 'El ritmo menstrual debe ser un texto.',
+        'last_menstruation_date.date' => 'La fecha de la última menstruación debe ser una fecha válida.',
+        'polymenorrhea.boolean' => 'El campo polimenorrea debe ser verdadero o falso.',
+        'hypermenorrhea.boolean' => 'El campo hipermenorrea debe ser verdadero o falso.',
+        'dysmenorrhea.boolean' => 'El campo dismenorrea debe ser verdadero o falso.',
+        'ivsa_year.numeric' => 'El año de inicio de vida sexual activa debe ser un número.',
+        'incapacitante.boolean' => 'El campo incapacitante debe ser verdadero o falso.',
+        'sexual_partners_number.numeric' => 'El número de parejas sexuales debe ser un número.',
+        'g.string' => 'El campo G debe ser un texto.',
+        'p.string' => 'El campo P debe ser un texto.',
+        'a.string' => 'El campo A debe ser un texto.',
+        'c.string' => 'El campo C debe ser un texto.',
+        'last_cytology_date.date' => 'La fecha de la última citología debe ser una fecha válida.',
+        'citology_result.string' => 'El resultado de la citología debe ser un texto.',
+        'current_contraceptive_method.string' => 'El método anticonceptivo actual debe ser un texto.',
+    ];
 }

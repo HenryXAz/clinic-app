@@ -123,4 +123,35 @@ class PatientInfoForm extends Form
         ];
     }
 
+    protected $messages = [
+        'names.required' => 'El nombre es obligatorio.',
+        'names.string' => 'El nombre debe ser un texto.',
+        'last_names.required' => 'El apellido es obligatorio.',
+        'last_names.string' => 'El apellido debe ser un texto.',
+        'birth_date.required' => 'La fecha de nacimiento es obligatoria.',
+        'birth_date.date' => 'La fecha de nacimiento debe ser una fecha válida.',
+        'community.string' => 'La comunidad debe ser un texto.',
+        'sector.string' => 'El sector debe ser un texto.',
+        'dpi.required' => 'El DPI es obligatorio.',
+        'dpi.string' => 'El DPI debe ser un texto.',
+        'dpi.min' => 'El DPI debe tener al menos 11 caracteres.',
+        'gender.required' => 'El género es obligatorio.',
+        'gender' => 'El género seleccionado no es válido.',
+        'religion.string' => 'La religión debe ser un texto.',
+        'ethnicity.required' => 'La etnia es obligatoria.',
+        'ethnicity' => 'La etnia seleccionada no es válida.',
+        'academic_level.required' => 'El nivel académico es obligatorio.',
+        'academic_level' => 'El nivel académico seleccionado no es válido.',
+        'marital_status.required' => 'El estado civil es obligatorio.',
+        'marital_status' => 'El estado civil seleccionado no es válido.',
+        'is_working.required' => 'El campo "¿Está trabajando?" es obligatorio.',
+        'is_working.boolean' => 'El campo "¿Está trabajando?" debe ser verdadero o falso.',
+        'is_immigrant.required' => 'El campo "¿Es inmigrante?" es obligatorio.',
+        'is_immigrant.boolean' => 'El campo "¿Es inmigrante?" debe ser verdadero o falso.',
+        'profession.required' => 'La profesión es obligatoria.',
+        'profession.string' => 'La profesión debe ser un texto.',
+        'birth_department.required' => 'El departamento de nacimiento es obligatorio.',
+        'department_id.required' => 'El departamento es obligatorio.',
+        'town_department_id.required' => 'El municipio es obligatorio.',
+    ];
 }

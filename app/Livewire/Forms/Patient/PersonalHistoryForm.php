@@ -63,4 +63,20 @@ class PersonalHistoryForm extends Form
         ];
     }
 
+    protected $messages = [
+        'childhood_diseases.string' => 'El campo enfermedades de la infancia debe ser un texto.',
+        'diseases_sequel.string' => 'El campo secuelas de enfermedades debe ser un texto.',
+        'previous_hospitalizations.boolean' => 'El campo hospitalizaciones previas debe ser verdadero o falso.',
+        'previous_hospitalizations_description.string' => 'La descripción de hospitalizaciones previas debe ser un texto.',
+        'surgical_history.boolean' => 'El campo historial quirúrgico debe ser verdadero o falso.',
+        'surgical_history_description.string' => 'La descripción del historial quirúrgico debe ser un texto.',
+        'previous_transfusions.boolean' => 'El campo transfusiones previas debe ser verdadero o falso.',
+        'previous_transfusions_description.string' => 'La descripción de transfusiones previas debe ser un texto.',
+        'fractures.boolean' => 'El campo fracturas debe ser verdadero o falso.',
+        'fractures_description.string' => 'La descripción de fracturas debe ser un texto.',
+        'traumas.boolean' => 'El campo traumas debe ser verdadero o falso.',
+        'traumas_description.string' => 'La descripción de traumas debe ser un texto.',
+        'other_disiases.boolean' => 'El campo otras enfermedades debe ser verdadero o falso.',
+        'other_disiases_description.string' => 'La descripción de otras enfermedades debe ser un texto.',
+    ];
 }
