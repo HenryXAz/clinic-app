@@ -10,7 +10,7 @@
             <x-input type="number" label="¿Cuántos por día?" wire:model="noPathologyBackgroundForm.how_many_smoke_per_day" />
         </x-form-group>
 
-        <x-input type="number" label="Años de consumo o exposición" wire:model="NoPathologyBackgroundForm.years_of_smoking_or_exposition" />
+        <x-input type="number" label="Años de consumo o exposición" wire:model="noPathologyBackgroundForm.years_of_smoking_or_exposition" />
 
         <x-form-group>
             <x-toggle label="Exfumador" wire:model="noPathologyBackgroundForm.ex_smoker" />
