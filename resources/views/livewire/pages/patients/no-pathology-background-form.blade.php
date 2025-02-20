@@ -6,7 +6,7 @@
         <x-icon name="o-users" label="Tabaquismo" class="my-5 border-b border-gray-300 dark:border-gray-600" />
 
         <x-form-group>
-            <x-toggle label="No/Sí" wire:model="NoPathologyBackgroundForm.smoking" />
+            <x-toggle label="No/Sí" wire:model="noPathologyBackgroundForm.smoking" />
             <x-input type="number" label="¿Cuántos por día?" wire:model="noPathologyBackgroundForm.how_many_smoke_per_day" />
         </x-form-group>
 
@@ -14,7 +14,7 @@
 
         <x-form-group>
             <x-toggle label="Exfumador" wire:model="noPathologyBackgroundForm.ex_smoker" />
-            <x-toggle label="fumador pasivo" wire:model="NoPathologyBackgroundForm.passive_smoker"/>
+            <x-toggle label="fumador pasivo" wire:model="noPathologyBackgroundForm.passive_smoker"/>
         </x-form-group>
 
         <x-icon name="o-users" label="Alcoholismo" class="my-5 border-b border-gray-300 dark:border-gray-600" />

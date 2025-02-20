@@ -43,7 +43,7 @@ class NoPathologyBackgroundForm extends Form
             'ex_alcoholic_or_ocasional' => $patient->ex_alcoholic_or_ocasional,
             'allergies' => $patient->allergies,
             'allergies_description' => $patient->allergies_description,
-            'blood_tyoe' => $patient->blood_type,
+            'blood_type' => $patient->blood_type,
             'basic_home_services' => $patient->basic_home_services,
             'drug_dependency' => $patient->drug_dependency,
             'drug_dependency_description' => $patient->drug_dependency_description,

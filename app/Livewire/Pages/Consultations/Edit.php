@@ -110,7 +110,7 @@ class Edit extends Component
                 ],
             );
 
-//            DB::commit();
+           DB::commit();
             $this->success('Descripción registrada con éxito', timeout: 3000);
             $this->detail_form->reset();
         } catch (\Throwable $th) {

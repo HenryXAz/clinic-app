@@ -6,7 +6,7 @@
 
         <x-icon name="o-user" label="Hospitalizaciones previas" />
         <x-toggle label="No/Si" wire:model="personalHistoryForm.previous_hospitalizations" />
-        <x-textarea label="Especificar" placeholder="Agreguar especificación" wire:model="personalHistoryForm.hospitalizacions_description"/>
+        <x-textarea label="Especificar" placeholder="Agreguar especificación" wire:model="personalHistoryForm.previous_hospitalizations_description"/>
 
         <x-icon name="o-user" label="Antecedentes quirúrgicos" class="mt-5" />
         <x-toggle label="No/Sí" wire:model="personalHistoryForm.surgical_history" />
