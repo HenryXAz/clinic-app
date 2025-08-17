@@ -116,10 +116,10 @@ class Create extends Component
                 ...$this->personalHistoryForm->toArray(),
             ];
 
-            Patient::create($data);
+            $newPatientId = Patient::create($data);
             DB::commit();
             $this->success('información guardada con éxito', timeout: 3000);
-            $this->redirect(route('patients.index'), navigate: true);
+            $this->redirect(route("consultations.clinic_card.index", $newPatientId));
         } catch (\Throwable $th) {
             DB::rollBack();
             dump('Error: ' . $th->getMessage());

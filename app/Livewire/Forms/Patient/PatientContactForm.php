@@ -34,7 +34,7 @@ class PatientContactForm extends Form
                 'nullable',
             ],
             'personal_phone' => [
-                'required',
+                'nullable',
                 'string',
             ],
             'tutor_name' => [

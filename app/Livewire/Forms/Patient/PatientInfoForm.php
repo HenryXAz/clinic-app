@@ -75,7 +75,6 @@ class PatientInfoForm extends Form
                 'nullable',
             ],
             'dpi' => [
-                'required',
                 'string',
                 'min:11'
             ],
@@ -108,7 +107,6 @@ class PatientInfoForm extends Form
                 'boolean',
             ],
             'profession' => [
-                'required',
                 'string',
             ],
             'birth_department' => [
